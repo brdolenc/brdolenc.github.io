@@ -67,6 +67,7 @@
 	height: 100%;
 	position: absolute;
 	z-index: 1;
+	margin-top: -80px;
 }
 
 #moon {
@@ -79,6 +80,14 @@
 	height: 100%;
 	position: absolute;
 	z-index: 1;
+	margin-top: -80px;
+}
+
+
+@media screen and (max-width:1200px){
+	#sun, #moon{
+		margin-top: -30px;
+	}
 }
 
 #bottom-nav {

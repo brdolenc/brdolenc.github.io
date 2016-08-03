@@ -42,6 +42,10 @@
     var btNav3 = $("#bt-nav-3");
     var btNav4 = $("#bt-nav-4");
 
+    var btNav1Vert = $("#bt-nav-1-vert");
+    var btNav2Vert = $("#bt-nav-2-vert");
+    var btNav3Vert = $("#bt-nav-3-vert");
+    var btNav4Vert = $("#bt-nav-4-vert");
 	//animação bg color
 	var rColor = 92;
 	var gColor = 185;
@@ -126,7 +130,7 @@
 		//animação sol
 		sol.css({ 
 			'opacity' : ((calcDescSpeed(100, sPos, 1.7, 'decimal'))/100), 
-			'backgroundPosition' : 'center ' + calcAsc(1500, sPos, 'decimal') + 'px ', 
+			'backgroundPosition' : 'center ' + calcAsc(1800, sPos, 'decimal') + 'px ', 
 			'width' : calcDescSpeed(30, sPos, 0.5, 'decimal') + '%', 
 			'margin-left' : (100-calcDescSpeed(30, sPos, 0.5, 'decimal'))/2 + '%', 
 			'margin-right' : (100-calcDescSpeed(30, sPos, 0.5, 'decimal'))/2 + '%', 
@@ -135,7 +139,7 @@
 		//animação lua
 		lua.css({ 
 			'opacity' : ((calcAscSpeed(100, sPos, 1.7, 'decimal'))/100), 
-			'backgroundPosition' : 'center ' + calcDesc(1500, sPos, 'decimal') + 'px ', 
+			'backgroundPosition' : 'center ' + calcDesc(1800, sPos, 'decimal') + 'px ', 
 			'width' : calcAscSpeed(30, sPos, 0.5, 'decimal') + '%', 
 			'margin-left' : (100-calcAscSpeed(30, sPos, 0.5, 'decimal'))/2 + '%', 
 			'margin-right' : (100-calcAscSpeed(30, sPos, 0.5, 'decimal'))/2 + '%', 
@@ -157,9 +161,11 @@
 
 		//animação menu
 		lineMenu.attr("x2", calcAsc(223, sPos, 'decimal'));
-		if(sPos>=0.30){ btNav2.css({'background': '#dd666c'}); }else { btNav2.css({'background': '#cacaca'}); }
-		if(sPos>=0.62){ btNav3.css({'background': '#dd666c'}); }else { btNav3.css({'background': '#cacaca'}); }
-		if(sPos>=0.99){ btNav4.css({'background': '#dd666c'}); }else { btNav4.css({'background': '#cacaca'}); }
+		
+		if(sPos<=0.09){ $("#container-menu-vert > ul > li").removeClass("active"); btNav1Vert.toggleClass('active'); }
+		if(sPos>=0.30){ btNav2.css({'background': '#dd666c'}); $("#container-menu-vert > ul > li").removeClass("active"); btNav2Vert.toggleClass('active'); } else { btNav2.css({'background': '#cacaca'}); }
+		if(sPos>=0.62){ btNav3.css({'background': '#dd666c'}); $("#container-menu-vert > ul > li").removeClass("active"); btNav3Vert.toggleClass('active'); } else { btNav3.css({'background': '#cacaca'}); }
+		if(sPos>=0.99){ btNav4.css({'background': '#dd666c'}); $("#container-menu-vert > ul > li").removeClass("active"); btNav4Vert.toggleClass('active'); } else { btNav4.css({'background': '#cacaca'}); }
 
 		//salva a ultima posicao do scroll
 		saveScroll=sPos;
