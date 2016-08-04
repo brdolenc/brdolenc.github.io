@@ -1,6 +1,12 @@
 * {
 	padding: 0px;
 	margin: 0px;
+	-webkit-font-smoothing: antialiased;
+  	-moz-osx-font-smoothing: grayscale;
+}
+
+*::after, *::before {
+  box-sizing: border-box;
 }
 
 #main {
@@ -16,7 +22,15 @@
 	background: -o-linear-gradient(top, rgba(92,185,204,1) 0%, rgba(217,224,195,1) 100%);
 	background: -ms-linear-gradient(top, rgba(92,185,204,1) 0%, rgba(217,224,195,1) 100%);
 	background: linear-gradient(to bottom, rgba(92,185,204,1) 0%, rgba(217,224,195,1) 100%);
+	-webkit-transition: .5s ease-in-out;
+	-moz-transition: .5s ease-in-out;
+	-o-transition: .5s ease-in-out;
+	transition: .5s ease-in-out;
+}
 
+#main.active{
+	outline-offset: -20px;
+	outline: 20px solid #fff;
 }
 
 #texture-main {
@@ -42,16 +56,29 @@
 
 
 #character{ 
-	width:200px; 
-	height:150px; 
-	background:url('../imgs/sprite_skate.png');
-	background-position: center -60px;
-	position: absolute;
-	left: 50%;
-	margin-left: -100px;
-	bottom: 100px;
-	z-index: 11;
+	width: 80px;
+    height: 80px;
+    background: url('../imgs/personagem.png') #b8d2ba;
+    background-position: center -60px;
+    position: absolute;
+    left: 50%;
+    margin-left: -50px;
+    bottom: 39px;
+    z-index: 9;
+    border-radius: 50%;
+    border: 10px solid #FFF;
+    cursor: pointer;
+    transition: background-color 0.4s ease-out 0s;
+	-moz-transition: background-color 0.4s  ease-out 0s;
+	-ms-transition: background-color 0.4s  ease-out 0s;
+	-o-transition: background-color 0.4s  ease-out 0s;
+	-webkit-transition: background-color 0.4s  ease-out 0s;
 }
+
+#character:hover{
+	background-color: #dd666c;
+}
+
 
 #forceScroll {
 	height: 30000px;
@@ -67,7 +94,7 @@
 	height: 100%;
 	position: absolute;
 	z-index: 1;
-	margin-top: -80px;
+	margin-top: -70px;
 }
 
 #moon {
@@ -80,7 +107,7 @@
 	height: 100%;
 	position: absolute;
 	z-index: 1;
-	margin-top: -80px;
+	margin-top: -70px;
 }
 
 
@@ -91,14 +118,13 @@
 }
 
 #bottom-nav {
-	width: 416px;
+	width: 570px;
 	height: 70px;
 	margin-bottom: 0px;
 	position: absolute;
-	z-index: 11;
 	bottom: 0;
 	left: 50%;
-	margin-left: -208px;
+	margin-left: -285px;
 	background: url('../imgs/bg-nav-footer.png') center top no-repeat;
 }
 
@@ -117,7 +143,7 @@
 	border-radius: 50%;
 	background: #cacaca;
 	display: inline-block;
-	margin: 23px 25px 0px 25px;
+	margin: 23px 50px 0px 50px;
 	cursor: pointer;
 
 	transition: background-color 0.5s ease-out 0s;
@@ -398,4 +424,28 @@
   top: 28px;
   left: 6px;
   background: #dd666c;
+}
+
+/* TEXTS */
+
+.modal-content h2 {
+	font-family: 'Dosis';
+	font-weight: 300;
+	color: #FFFFFF;
+	font-size: 30px;
+}
+
+.modal-content h3 {
+	font-family: 'Dosis';
+	font-weight: 300;
+	color: #862a2e;
+	font-size: 17px;
+	margin-bottom: 30px;
+}
+
+.modal-content p {
+	font-family: 'Dosis';
+	font-weight: 300;
+	color: #FFFFFF;
+	font-size: 20px;
 }

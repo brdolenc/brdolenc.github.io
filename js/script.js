@@ -146,9 +146,13 @@
 		});
 		
 		//animação personagem
-		character.css({'backgroundPosition':'center '+calcFrames(150, sPos, 4)+'px'});
-
-		if(dirScroll=='down'){ directionFunc = 1; }else if(dirScroll=='up'){ directionFunc = -1; }
+		if(dirScroll=='down'){ 
+			directionFunc = 1; 
+			character.css({'backgroundPosition':'center '+calcFrames(-75, sPos, 4)+'px'});
+		}else if(dirScroll=='up'){ 
+			directionFunc = -1; 
+			character.css({'backgroundPosition':'center '+calcFrames(75, sPos, 4)+'px'});
+		}
 
 		character.css({
 			"-moz-transform": "scaleX("+directionFunc+")",
@@ -160,7 +164,7 @@
 		});
 
 		//animação menu
-		lineMenu.attr("x2", calcAsc(223, sPos, 'decimal'));
+		lineMenu.attr("x2", calcAsc(390, sPos, 1, 'decimal'));
 		
 		if(sPos<=0.09){ $("#container-menu-vert > ul > li").removeClass("active"); btNav1Vert.toggleClass('active'); }
 		if(sPos>=0.30){ btNav2.css({'background': '#dd666c'}); $("#container-menu-vert > ul > li").removeClass("active"); btNav2Vert.toggleClass('active'); } else { btNav2.css({'background': '#cacaca'}); }
@@ -220,6 +224,8 @@
 		$(this).toggleClass('open');
 		//menu view
 		$("#container-menu-vert").toggleClass('open-menu-vert');
+		//main
+		$("#main").toggleClass('active');
 	});
 
 	//active menu vertical item
