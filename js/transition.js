@@ -1,1 +1,65 @@
-jQuery(document).ready(function($){function n(){var n=$(window).width(),i=$(window).height(),e,t;n/i>a?(t=n,e=t/a):(e=1.2*i,t=e*a),o.css({width:t*s+"px",height:e+"px"}),d=!1}var i=$(".cd-modal-trigger"),e=$(".cd-transition-layer"),o=e.children(),t=$(".cd-modal"),a=1.78,s=e.data("frame"),d=!1;n(),$(window).on("resize",function(){d||(d=!0,window.requestAnimationFrame?window.requestAnimationFrame(n):setTimeout(n,300))}),i.on("click",function(n){n.preventDefault();var i=$(n.target).attr("href");e.addClass("visible opening");var o=$(".no-cssanimations").length>0?0:800;setTimeout(function(){t.filter(i).addClass("visible"),e.removeClass("opening")},o)}),t.on("click",".modal-close",function(n){n.preventDefault(),e.addClass("closing"),t.removeClass("visible"),o.one("webkitAnimationEnd oanimationend msAnimationEnd animationend",function(){e.removeClass("closing opening visible"),o.off("webkitAnimationEnd oanimationend msAnimationEnd animationend")})})});
+$(document).ready(function($){
+	//cache some jQuery objects
+	var modalTrigger = $('.cd-modal-trigger'),
+		transitionLayer = $('.cd-transition-layer'),
+		transitionBackground = transitionLayer.children(),
+		modalWindow = $('.cd-modal');
+
+	var frameProportion = 1.78, //png frame aspect ratio
+		frames = transitionLayer.data('frame'), //number of png frames
+		resize = false;
+
+	//set transitionBackground dimentions
+	setLayerDimensions();
+	$(window).on('resize', function(){
+		if( !resize ) {
+			resize = true;
+			(!window.requestAnimationFrame) ? setTimeout(setLayerDimensions, 300) : window.requestAnimationFrame(setLayerDimensions);
+		}
+	});
+
+	//open modal window
+	modalTrigger.on('click', function(event){	
+		event.preventDefault();
+		var modalId = $(event.target).attr('href');
+		transitionLayer.addClass('visible opening');
+		var delay = ( $('.no-cssanimations').length > 0 ) ? 0 : 800;
+		setTimeout(function(){
+			modalWindow.filter(modalId).addClass('visible');
+			transitionLayer.removeClass('opening');
+		}, delay);
+	});
+
+	//close modal window
+	modalWindow.on('click', '.modal-close', function(event){
+		event.preventDefault();
+		transitionLayer.addClass('closing');
+		modalWindow.removeClass('visible');
+		transitionBackground.one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(){
+			transitionLayer.removeClass('closing opening visible');
+			transitionBackground.off('webkitAnimationEnd oanimationend msAnimationEnd animationend');
+		});
+		$(".item-menu-about").removeClass('active');
+	});
+
+	function setLayerDimensions() {
+		var windowWidth = $(window).width(),
+			windowHeight = $(window).height(),
+			layerHeight, layerWidth;
+
+		if( windowWidth/windowHeight > frameProportion ) {
+			layerWidth = windowWidth;
+			layerHeight = layerWidth/frameProportion;
+		} else {
+			layerHeight = windowHeight*1.2;
+			layerWidth = layerHeight*frameProportion;
+		}
+
+		transitionBackground.css({
+			'width': layerWidth*frames+'px',
+			'height': layerHeight+'px',
+		});
+
+		resize = false;
+	}
+});

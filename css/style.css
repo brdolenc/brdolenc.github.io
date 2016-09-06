@@ -58,7 +58,8 @@
 #character{ 
 	width: 80px;
     height: 80px;
-    background: url('../imgs/personagem.png') #b8d2ba;
+    background: url('../imgs/personagem.png');
+    background-color: #b8d2ba;
     background-position: center -60px;
     position: absolute;
     left: 50%;
@@ -68,15 +69,15 @@
     border-radius: 50%;
     border: 10px solid #FFF;
     cursor: pointer;
-    transition: background-color 0.4s ease-out 0s;
-	-moz-transition: background-color 0.4s  ease-out 0s;
-	-ms-transition: background-color 0.4s  ease-out 0s;
-	-o-transition: background-color 0.4s  ease-out 0s;
-	-webkit-transition: background-color 0.4s  ease-out 0s;
+    transition: background-color 0.4s ease-out 0s, background-image  0.4s ease-out 0s;
+	-moz-transition: background-color 0.4s  ease-out 0s, background-cimage 0.4s  ease-out 0s;
+	-ms-transition: background-color 0.4s  ease-out 0s, background-cimage 0.4s  ease-out 0s;
+	-o-transition: background-color 0.4s  ease-out 0s, background-cimage 0.4s  ease-out 0s;
+	-webkit-transition: background-color 0.4s  ease-out 0s, background-cimage 0.4s  ease-out 0s;
 }
 
 #character:hover{
-	background-color: #dd666c;
+	background-color: #dd666c !important;
 }
 
 

@@ -124,6 +124,10 @@
 		  'background' : 'linear-gradient(to bottom, '+colorBgCalc+' 0%,'+colorBgCalc2+' 100%)'
 		});
 
+		character.css({ 
+		  'background-color' : 'rgba('+calcDesc(184, sPos, 'int')+', '+calcDesc(210, sPos, 'int')+', '+calcDesc(186, sPos, 'int')+', 1)'
+		});
+
 		//animação textura
 		textureMain.css({ 'opacity' : ((calcDescSpeed(100, sPos, 1.4, 'decimal'))/100) });
 
@@ -193,32 +197,7 @@
 
 	});
 
-	var timeOutHourMenu;
-	//Efeito hover menu nav
-	$(".menu-nav-item").hover(function(){
-		clearTimeout(timeOutHourMenu);
-		var item = $(this);
-		var time = parseInt(item.data('time'));
-		var hourDiv = item.find(".hours-menu");
-		var iconDiv = item.find(".icon-menu");
-		iconDiv.hide();
-		hourDiv.css('opacity', 1);
-		timeOutHourMenu = setTimeout(function(){
-			hourDiv.fadeOut('slow');
-			iconDiv.delay(400).css('opacity', 0).show().animate({'opacity':1}, 1000);
-		}, time);
-	});
-
-	//Efeito hover menu nav
-	$(".menu-nav-item").mouseout(function(){
-		var item = $(this);
-		var hourDiv = item.find(".hours-menu");
-		var iconDiv = item.find(".icon-menu");
-		hourDiv.show().css('opacity', 0);
-		iconDiv.hide();
-		clearTimeout(timeOutHourMenu);
-	});
-
+	
 	//efeito botao menu vertical e menu
 	$('#button-menu-vert').click(function(){
 		$(this).toggleClass('open');
