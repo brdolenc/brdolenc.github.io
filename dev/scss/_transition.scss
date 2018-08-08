@@ -13,6 +13,7 @@
   -webkit-transition: opacity .3s 0s, visibility 0s .3s;
   transition: opacity .3s 0s, visibility 0s .3s;
   border: 10px solid #FFF;
+  display: none;
 }
 .cd-modal .modal-content {
   height: 100%;
@@ -63,6 +64,7 @@
   visibility: visible;
   -webkit-transition: opacity .7s, visibility 0s;
   transition: opacity .7s, visibility 0s;
+  display: block;
 }
 .cd-modal.visible .modal-content {
   /* this fixes the buggy scrolling on webkit browsers - mobile devices only - when overflow property is applied */

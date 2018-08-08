@@ -1,0 +1,23 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>Web App</title>
+	<!-- Sempre chamar o css com os atributos 'href' e 'src' -->
+	<link rel="stylesheet" href="css/style.css" src="css/style.css">
+	@@include('./components/head.html')
+</head>
+<body>
+
+<main id="main">
+	@@include('./components/menu.html')
+	@@include('./components/about.html')
+	<!-- PAGES -->
+	<div class="pages">
+		@@include('./components/page-home.html')
+		@@include('./components/page-contato.html')
+	</div>
+</main> 
+<div id="forceScroll"></div>
+<script async="async" src="js/all.min.js"></script>
+</body>
+</html>
