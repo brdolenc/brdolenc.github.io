@@ -1,11 +1,48 @@
- window.addEventListener( 'load', function() {
+ //terminal simulator
+var data = [
+  { 
+    action: 'type',
+    strings: ["npm install -g frontend-package"],
+    output: '&nbsp;<span class="green">✓</span> <span class="gray">HTML 5</span><br>&nbsp;<span class="green">✓</span> <span class="gray">CSS 3</span><br>&nbsp;<span class="green">✓</span> <span class="gray">JavaScript</span><br>&nbsp;<span class="green">✓</span> <span class="gray">Jquery</span><br>&nbsp;<span class="green">✓</span> <span class="gray">GULP</span><br>&nbsp;<span class="green">✓</span> <span class="gray">Vue.js</span><br>&nbsp;<span class="green">✓</span> <span class="gray">Bootstrap</span><br>&nbsp;<span class="green">✓</span> <span class="gray">SASS</span><br>&nbsp;<span class="green">✓</span> <span class="gray">REACT</span><br>&nbsp;',
+    postDelay: 3000
+  },
+  { 
+    action: 'type',
+    strings: ["npm install -g backend-package"],
+    output: '&nbsp;<span class="green">✓</span> <span class="gray">PHP</span><br>&nbsp;<span class="green">✓</span> <span class="gray">Laravel</span><br>&nbsp;<span class="green">✓</span> <span class="gray">WordPress</span><br>&nbsp;<span class="green">✓</span> <span class="gray">Drupal</span><br>&nbsp;<span class="green">✓</span> <span class="gray">APIs REST/SOAP</span><br>&nbsp;<span class="green">✓</span> <span class="gray">NODE.js</span><br>&nbsp;<span class="green">✓</span> <span class="gray">MySQL</span><br>&nbsp;<span class="green">✓</span> <span class="gray">NoSQL</span><br>&nbsp;<span class="green">✓</span> <span class="gray">SVN</span><br>&nbsp;<span class="green">✓</span> <span class="gray">GIT</span><br>&nbsp;',
+    postDelay: 1000
+  },
+ { 
+    action: 'type',
+    strings: ["exit"],
+    output: '<span class="gray">wait...</span><br>&nbsp;',
+    postDelay: 1000
+  },
+  
+];
+
+window.addEventListener( 'load', function() {
+
+ 	//variaveis
+ 	var body = $("body");
+ 	var terminal = $(".terminal-window");
+ 	var blockpage = $("#block-page");
 
     //altura do documento
     var docHeight = document.documentElement.offsetHeight;
 
     //posicao do scroll
     var scrolled = window.scrollY / ( docHeight - window.innerHeight );
-  
+
+    //inicia o terminal se o scroll estiver na posivao 0
+    if(scrolled==0){
+    	runScripts(data, 0);
+    	body.css({'overflow': 'initial !important'});
+    }else{
+	    blockpage.hide();
+	    terminal.hide();
+    }
+
     //evento scroll
     window.addEventListener( 'scroll', function() {
      
@@ -180,6 +217,65 @@
 
 	}
 
+	//terminal animate
+	function runScripts(data, pos) {
+		terminal.show();
+	    
+	    var prompt = $('.prompt'),
+	        script = data[pos];
+	    if(script.clear === true) {
+	      $('.history').html(''); 
+	    }
+	    switch(script.action) {
+	        case 'type':
+	          // cleanup for next execution
+	          prompt.removeData();
+	          $('.typed-cursor').text('');
+	          prompt.typed({
+	            strings: script.strings,
+	            typeSpeed: 40,
+	            callback: function() {
+
+	              var history = $('.history').html();
+	              history = history ? [history] : [];
+	              history.push('$ ' + prompt.text());
+	              if(script.output) {
+	                history.push(script.output);
+	                prompt.html('');
+	                $('.history').html(history.join('<br>'));
+	              }
+	              // scroll to bottom of screen
+	              $('section.terminal').scrollTop($('section.terminal').height());
+	              // Run next script
+	              pos++;
+
+	              if(pos==3){
+
+	              	setTimeout(function() {
+		                terminal.animate({'margin-top': '-600px'}, 500);
+		                blockpage.hide();
+		                body.css({'overflow': 'initial'});
+		            }, 2000);
+
+	              }else{
+
+		              if(pos < data.length) {
+		                setTimeout(function() {
+		                  runScripts(data, pos);
+		                }, script.postDelay || 3000);
+		              }
+
+		          }
+
+	            }
+	          });
+	          break;
+	        case 'view':
+
+	          break;
+	    }
+	}
+
 	//inicia a animação quando a pagina é carregada
 	animate(scrolled);
 
@@ -214,38 +310,6 @@
 	});
 
 
-	//terminal simulator
-	var data = [
-	  // { 
-	  //   action: 'type',
-	  //   strings: ["loading site..."],
-	  //   output: '&nbsp;<span class="green">✓</span> <span class="gray">Images loaded</span><br>&nbsp;<span class="green">✓</span> <span class="gray">JS loaded</span><br>&nbsp;<span class="green">✓</span> <span class="gray">CSS loaded</span><br>&nbsp;<span class="green">✓</span> <span class="gray">Pages loaded</span><br>&nbsp;',
-	  //   postDelay: 1000
-	  // },
-	  { 
-	    action: 'type',
-	    strings: ["npm install -g fullstack-package"],
-	    output: '&nbsp;<span class="green">✓</span> <span class="gray">HTML 5</span><br>&nbsp;<span class="green">✓</span> <span class="gray">CSS 3</span><br>&nbsp;<span class="green">✓</span> <span class="gray">JavaScript</span><br>&nbsp;<span class="green">✓</span> <span class="gray">Jquery</span><br>&nbsp;<span class="green">✓</span> <span class="gray">GULP</span><br>&nbsp;<span class="green">✓</span> <span class="gray">Vue.js</span><br>&nbsp;<span class="green">✓</span> <span class="gray">PHP</span><br>&nbsp;<span class="green">✓</span> <span class="gray">Laravel</span><br>&nbsp;<span class="green">✓</span> <span class="gray">WordPress</span><br>&nbsp;<span class="green">✓</span> <span class="gray">Drupal</span><br>&nbsp;<span class="green">✓</span> <span class="gray">APIs REST/SOAP</span><br>&nbsp;<span class="green">✓</span> <span class="gray">MySQL</span><br>&nbsp;<span class="green">✓</span> <span class="gray">SVN</span><br>&nbsp;<span class="green">✓</span> <span class="gray">GIT</span><br>&nbsp;',
-	    postDelay: 3000
-	  },
-	  { 
-	    action: 'type',
-	    strings: ["bruno-dolenc --info"],
-	    output: '<span class="blue">[ Bruno Dolenc ] </span><span class="gray">Desenvolvedor Full stack, trabalho há mais de 10 anos nessa área, iniciei como designer e logo depois comecei a programar, hoje sou formado em Ciência da computação e coordenador de tecnologia de uma agência digital.</span><br>&nbsp;',
-	    postDelay: 1000
-	  },
-	 { 
-	    action: 'type',
-	    strings: ["exit"],
-	    output: '<span class="gray">wait...</span><br>&nbsp;',
-	    postDelay: 1000
-	  },
-	  
-	];
-
-	runScripts(data, 0);
-	
-
 }, false);
 
 
@@ -253,58 +317,3 @@
 
 
 
-function runScripts(data, pos) {
-    var prompt = $('.prompt'),
-        script = data[pos];
-    if(script.clear === true) {
-      $('.history').html(''); 
-    }
-    switch(script.action) {
-        case 'type':
-          // cleanup for next execution
-          prompt.removeData();
-          $('.typed-cursor').text('');
-          prompt.typed({
-            strings: script.strings,
-            typeSpeed: 40,
-            callback: function() {
-
-              
-              
-              var history = $('.history').html();
-              history = history ? [history] : [];
-              history.push('$ ' + prompt.text());
-              if(script.output) {
-                history.push(script.output);
-                prompt.html('');
-                $('.history').html(history.join('<br>'));
-              }
-              // scroll to bottom of screen
-              $('section.terminal').scrollTop($('section.terminal').height());
-              // Run next script
-              pos++;
-
-              if(pos==3){
-
-              	setTimeout(function() {
-	                $(".terminal-window").animate({'margin-top': '-600px'}, 500);
-	            }, 10000);
-
-              }else{
-
-	              if(pos < data.length) {
-	                setTimeout(function() {
-	                  runScripts(data, pos);
-	                }, script.postDelay || 3000);
-	              }
-
-	          }
-
-            }
-          });
-          break;
-        case 'view':
-
-          break;
-    }
-}

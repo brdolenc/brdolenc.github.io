@@ -9,6 +9,10 @@
   box-sizing: border-box;
 }
 
+body{
+  overflow: hidden;
+}
+
 #main {
 	width: 100%;
 	outline-offset: -10px;
@@ -453,6 +457,14 @@
 }
 
 
+#block-page{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 900;
+}
+
+
 .terminal-window {
   text-align: left;
   width: 500px;
@@ -463,6 +475,7 @@
   margin-top: 150px;
   left: 50%;
   margin-left: -250px;
+  display: none;
 
   header {
     background: #262626;
@@ -500,6 +513,7 @@
     padding: 10px;
     box-sizing: border-box;
     position: absolute;
+    z-index: 900;
     width: 100%;
     top: 30px;
     bottom: 0;
