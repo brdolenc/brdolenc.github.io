@@ -1,0 +1,273 @@
+@font-face {
+    font-family: "PorscheNextWLa";
+    font-weight: bold;
+    font-style: normal;
+    src: url("../fonts/PorscheNextWLa-Bold.eot");
+    src: url("../fonts/PorscheNextWLa-Bold.eot?#iefix") format("embedded-opentype"), 
+	    url("../fonts/PorscheNextWLa-Bold.woff2") format("woff2"), 
+	    url("../fonts/PorscheNextWLa-Bold.woff") format("woff"), 
+	    url("../fonts/PorscheNextWLa-Bold.ttf") format("truetype"), 
+	    url("../fonts/PorscheNextWLa-Bold.svg#PorscheNextWLa-Bold") format("svg");
+}
+
+@font-face {
+    font-family: "PorscheNextWCy";
+    font-weight: normal;
+    font-style: normal;
+    src: url("../fonts/PorscheNextWCy-Regular.eot");
+    src: url("../fonts/PorscheNextWCy-Regular.eot?#iefix") format("embedded-opentype"), 
+	    url("../fonts/PorscheNextWCy-Regular.woff2") format("woff2"), 
+	    url("../fonts/PorscheNextWCy-Regular.woff") format("woff"), 
+	    url("../fonts/PorscheNextWCy-Regular.ttf") format("truetype"), 
+	    url("../fonts/PorscheNextWCy-Regular.svg#PorscheNextWCy-Regular") format("svg");
+}
+
+
+body{
+	background-color: #FFF;	
+	font-family: "PorscheNextWLa";
+}
+
+header{
+	text-align: center;
+	border-bottom: 1px solid #e3e4e4;
+	width: 80%;
+	margin-left: 10%;
+
+	a{
+		background: url('../imgmin/porsche.svg') #FFF;
+		width: 127px;
+	    height: 75px;
+	    background-size: 123px auto;
+	    display: block;
+	    margin: 0 auto;
+	    top: 16px;
+    	position: relative;
+	}
+
+}
+
+section#banner{
+	width: 100%;
+	height: auto;
+	margin-top: 40px;
+	background-color: #d7d9d8;
+
+	.slides{
+		height: 496px;
+
+		.item{
+			outline: none;
+			text-align: center;
+			img{
+				margin: 0 auto;
+			}
+
+			.content{
+				font-weight: normal;
+				color: #FFF;
+				font-size: 50px;
+				position: relative;
+
+				h2{
+					&::before{
+						content: "";
+						background: url("../imgmin/red-arrow.png");
+						height: 29px;
+						width: 16px;
+						display: inline-block;
+						margin-right: 14px;
+					}
+				}
+			
+				&.item-panamera{
+					display: block;
+				    max-width: 1130px;
+				    color: #000;
+				    top: -490px;
+				    text-align: left;
+				    margin: 0 auto;
+
+					h2{
+						display: block;
+				    	max-width: 640px;
+						font-size: 50px;
+						float: right;						
+					}
+				}
+
+				&.item-macan{
+					display: block;
+				    max-width: 1130px;
+				    color: #FFF;
+				    top: -490px;
+				    text-align: left;
+				    margin: 0 auto;
+
+					h2{
+						font-size: 50px;
+					}
+				}
+
+				&.item-911{
+					display: block;
+				    max-width: 1130px;
+				    color: #FFF;
+				    top: -145px;
+				    text-align: left;
+				    margin: 0 auto;
+
+					h2{
+						display: block;
+				    	max-width: 785px;
+						font-size: 50px;
+						float: right;
+					}
+				}
+			}
+		}
+
+		.slick-dots{
+			bottom: 30px;
+
+			li{
+				width: 14px;
+				height: 14px;
+				background-color: #dfdfe2;
+				border-radius: 50%;
+				margin: 0px 20px;
+
+				&.slick-active{
+					background-color: #df0428;
+				}
+
+				button:before{
+					content: none;
+				}
+			}
+		}
+
+		.slick-arrow{
+			width: 26px;
+			height: 48px;
+			z-index: 99;
+
+			&::before{
+				content: none;
+			}
+		}
+
+		.slick-prev{
+			background-image: url('../imgmin/left-arrow.png');
+			left: 50px;
+		}
+
+		.slick-next{
+			background-image: url('../imgmin/right-arrow.png');
+			right: 50px;
+		}
+
+	}
+
+
+}
+
+section#infos{
+	text-align: center;
+
+	#item-info-0{
+		display: block;
+	}
+
+	#item-info-1{
+		display: none;
+	}
+
+	#item-info-2{
+		display: none;
+	}
+
+	h3{
+		font-size: 25px;
+		color: #000;
+		font-weight: bold;
+		text-align: center;
+		margin-bottom: 30px;
+	}
+
+	p{
+		font-family: "PorscheNextWCy";
+		font-size: 25px;
+		color: #9d9e9d;
+		font-weight: normal;
+		text-align: center;
+		display: block;
+		max-width: 1070px;
+		text-align: left;
+		margin: 0 auto;
+	}
+
+	.box-wells{
+		text-align: center;
+		margin-top: 40px;
+		margin-bottom: 40px;
+
+		.wells{
+			max-width: 354px;
+			height: auto;
+			text-align: center;
+			display: inline-block;
+			margin-right: 20px;
+			margin-left: 20px;
+			margin-bottom: 40px;
+
+			img{
+				border-bottom: 7px solid #e60012;
+				margin-bottom: 10px;
+			}
+
+			h4{
+				font-size: 25px;
+				color: #000;
+				font-weight: bold;
+				text-align: center;
+			}
+
+			p{
+				font-family: "PorscheNextWCy";
+				font-size: 25px;
+				color: #9d9e9d;
+				text-align: center;
+			}
+
+			p.price{
+				color: #e60012;
+				font-weight: bold;
+				font-size: 25px;
+				text-align: center;
+			}
+		}
+	}
+
+	
+}
+
+footer{
+	background-color: #dfdfe2;
+	padding-top: 40px;
+	padding-bottom: 40px;
+
+	h5{
+		font-size: 16px;
+		color: #000;
+		font-weight: bold;
+		text-align: left;
+	}
+
+	p{
+		font-family: "PorscheNextWCy";
+		font-size: 16px;
+		color: #606360;
+		text-align: left;
+	}
+}
