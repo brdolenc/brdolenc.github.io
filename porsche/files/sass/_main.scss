@@ -28,6 +28,14 @@ body{
 	font-family: "PorscheNextWLa";
 }
 
+.dektop{  display: block !important; }
+.mob991{  display: none !important; }
+
+@media (max-width: 991px){
+	.dektop{  display: none !important; }
+	.mob991{  display: block !important; }
+}
+
 header{
 	text-align: center;
 	border-bottom: 1px solid #e3e4e4;
@@ -59,14 +67,19 @@ section#banner{
 		.item{
 			outline: none;
 			text-align: center;
+			
 			img{
 				margin: 0 auto;
+
+				@media (max-width: 991px){
+					/*max-width: 100%;*/
+				}
 			}
 
 			.content{
 				font-weight: normal;
 				color: #FFF;
-				font-size: 50px;
+				font-size: 35px;
 				position: relative;
 
 				h2{
@@ -91,8 +104,14 @@ section#banner{
 					h2{
 						display: block;
 				    	max-width: 640px;
-						font-size: 50px;
-						float: right;						
+						font-size: 35px;
+						float: right;	
+
+						@media (max-width: 991px){
+							padding-right: 20px;
+							padding-left: 20px;
+							font-size: 25px;
+						}					
 					}
 				}
 
@@ -105,7 +124,13 @@ section#banner{
 				    margin: 0 auto;
 
 					h2{
-						font-size: 50px;
+						font-size: 35px;
+
+						@media (max-width: 991px){
+							padding-right: 20px;
+							padding-left: 20px;
+							font-size: 25px;
+						}	
 					}
 				}
 
@@ -120,8 +145,14 @@ section#banner{
 					h2{
 						display: block;
 				    	max-width: 785px;
-						font-size: 50px;
+						font-size: 35px;
 						float: right;
+
+						@media (max-width: 991px){
+							padding-right: 20px;
+							padding-left: 20px;
+							font-size: 25px;
+						}	
 					}
 				}
 			}
@@ -160,11 +191,19 @@ section#banner{
 		.slick-prev{
 			background-image: url('../imgmin/left-arrow.png');
 			left: 50px;
+
+			@media (max-width: 991px){
+				left: 10px;
+			}
 		}
 
 		.slick-next{
 			background-image: url('../imgmin/right-arrow.png');
 			right: 50px;
+
+			@media (max-width: 991px){
+				right: 10px;
+			}
 		}
 
 	}
@@ -193,6 +232,12 @@ section#infos{
 		font-weight: bold;
 		text-align: center;
 		margin-bottom: 30px;
+
+		@media (max-width: 600px){
+			font-size: 20px;
+		}
+
+
 	}
 
 	p{
@@ -205,6 +250,14 @@ section#infos{
 		max-width: 1070px;
 		text-align: left;
 		margin: 0 auto;
+
+		@media (max-width: 767px){
+			text-align: center;
+		}	
+
+		@media (max-width: 600px){
+			font-size: 20px;
+		}
 	}
 
 	.box-wells{
@@ -231,6 +284,10 @@ section#infos{
 				color: #000;
 				font-weight: bold;
 				text-align: center;
+
+				@media (max-width: 600px){
+					font-size: 20px;
+				}
 			}
 
 			p{
@@ -238,6 +295,10 @@ section#infos{
 				font-size: 25px;
 				color: #9d9e9d;
 				text-align: center;
+
+				@media (max-width: 600px){
+					font-size: 20px;
+				}
 			}
 
 			p.price{
@@ -245,6 +306,10 @@ section#infos{
 				font-weight: bold;
 				font-size: 25px;
 				text-align: center;
+
+				@media (max-width: 600px){
+					font-size: 20px;
+				}
 			}
 		}
 	}
@@ -262,6 +327,7 @@ footer{
 		color: #000;
 		font-weight: bold;
 		text-align: left;
+
 	}
 
 	p{
@@ -269,5 +335,14 @@ footer{
 		font-size: 16px;
 		color: #606360;
 		text-align: left;
+	}
+
+	a{
+		color: #3d403d;
+		text-decoration: underline;
+
+		&:hover{
+			color: #000;
+		}
 	}
 }
