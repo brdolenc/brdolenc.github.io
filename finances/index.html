@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>Finances</title>
+	<meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="theme-color" content="#000000">
+	<meta name="msapplication-navbutton-color" content="#000000">
+	<meta name="apple-mobile-web-app-status-bar-style" content="#000000">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvViztxdQJJSFXd-0qfEKIWFllOIAzUtM"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
+    <script async="async" src="js/main.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+		<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  	<link rel="stylesheet" href="css/style.css" src="css/style.css">
+</head>
+<body onload="getLocation()">
+
+		<header>
+			<i class="far fa-money-bill-alt"></i>
+		</header>
+    <main>
+
+			<input type="text" id="address">
+
+	    <ul id="categories">
+	      <li><i class="fas fa-capsules"></i><p>Farmácia</p></li>
+	      <li><i class="fas fa-car"></i><p>Transporte</p></li>
+	      <li><i class="fas fa-utensils"></i><p>Alimentação</p></li>
+	      <li><i class="fas fa-beer"></i><p>Diversão</p></li>
+	      <li><i class="fas fa-tshirt"></i><p>Roupas</p></li>
+	      <li><i class="fas fa-shopping-cart"></i><p>Mercado</p></li>
+	      <li><i class="fas fa-running"></i><p>Academia</p></li>
+				<li><i class="fas fa-paw"></i><p>Academia</p></li>
+	    </ul>
+
+	    <ul id="values">
+	      <li>+0,01</li>
+	      <li>+0,05</li>
+	      <li>+0,1</li>
+	      <li>+0,5</li>
+	      <li>+1</li>
+	      <li>+5</li>
+	      <li>+10</li>
+				<li>+20</li>
+	      <li>+50</li>
+	      <li>+100</li>
+	    </ul>
+
+	    <form>
+	      <input type="number" min="0.00" max="10000.00" step="0.01" id="price">
+
+	    </form>
+
+    </main>
+    <footer>
+			<button type="button">Salvar</button>
+    </footer>
+
+  </body>
+</html>
+<script></script>
