@@ -22,51 +22,58 @@
 	<link rel="icon" sizes="512x512" href="images/icons/icon-512x512.png">
 
 	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvViztxdQJJSFXd-0qfEKIWFllOIAzUtM"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
-    <script async="async" src="js/main.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-		<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-  	<link rel="stylesheet" href="css/style.css" src="css/style.css">
+  <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
+	<script async="async" src="js/jquery-3.3.1.min.js"></script>
+	<script async="async" src="js/jquery.mask.min.js"></script>
+	<script async="async" src="js/jquery-confirm.min.js"></script>
+  <script async="async" src="js/main.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+	<link rel="stylesheet" href="css/jquery-confirm.min.css" src="css/jquery-confirm.min.css">
+	<link rel="stylesheet" href="css/style.css" src="css/style.css">
 </head>
 <body onload="getLocation()">
 
     <main>
 
-			<input type="text" id="address">
+			<input type="text" id="address" readonly>
 
 	    <ul id="categories">
-	      <li><i class="fas fa-capsules"></i><p>Farmácia</p></li>
-	      <li><i class="fas fa-car"></i><p>Transporte</p></li>
-	      <li><i class="fas fa-utensils"></i><p>Alimentação</p></li>
-	      <li><i class="fas fa-beer"></i><p>Diversão</p></li>
-	      <li><i class="fas fa-tshirt"></i><p>Roupas</p></li>
-	      <li><i class="fas fa-shopping-cart"></i><p>Mercado</p></li>
-	      <li><i class="fas fa-running"></i><p>Academia</p></li>
-				<li><i class="fas fa-paw"></i><p>Academia</p></li>
+	      <li data-category="farmacia"><i class="fas fa-capsules"></i><p>Farmácia</p></li>
+	      <li data-category="transporte"><i class="fas fa-car"></i><p>Transporte</p></li>
+	      <li data-category="alimentacao"><i class="fas fa-utensils"></i><p>Alimentação</p></li>
+	      <li data-category="diversao"><i class="fas fa-beer"></i><p>Diversão</p></li>
+	      <li data-category="roupas"><i class="fas fa-tshirt"></i><p>Roupas</p></li>
+	      <li data-category="mercado"><i class="fas fa-shopping-cart"></i><p>Mercado</p></li>
+	      <li data-category="academia"><i class="fas fa-running"></i><p>Academia</p></li>
+				<li data-category="outros"><i class="fas fa-bug"></i><p>Outros</p></li>
 	    </ul>
 
 	    <ul id="values">
-	      <li>+0,01</li>
-	      <li>+0,05</li>
-	      <li>+0,1</li>
-	      <li>+0,5</li>
-	      <li>+1</li>
-	      <li>+5</li>
-	      <li>+10</li>
-				<li>+20</li>
-	      <li>+50</li>
-	      <li>+100</li>
+	      <li data-value="0.01">+0,01</li>
+	      <li data-value="0.05">+0,05</li>
+	      <li data-value="0.1">+0,10</li>
+	      <li data-value="0.5">+0,50</li>
+	      <li data-value="1">+1</li>
+	      <li data-value="5">+5</li>
+	      <li data-value="10">+10</li>
+				<li data-value="20">+20</li>
+	      <li data-value="50">+50</li>
+	      <li data-value="100">+100</li>
 	    </ul>
 
-	    <form>
-	      <input type="number" min="0.00" max="10000.00" step="0.01" id="price">
-
+	    <form id="save_entry">
+				<input value="R$" readonly id="label">
+	      <input type="text" min="0.00" value="0" max="10000.00" step="0.01" id="price">
+				<button type="button" id="save">Salvar</button>
 	    </form>
+
+
+			<p id="date_save"></p>
 
     </main>
     <footer>
-			<button type="button">Salvar</button>
+
     </footer>
 
   </body>
